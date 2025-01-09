@@ -1,6 +1,6 @@
 
 import './App.css';
-import ExpenseItem from './components/Expenses/ExpenseItem';
+import Expenses from './components/Expenses/Expenses';
 import NewExpense from "./components/Expenses/NewExpense/NewExpense";
 
 const App = () => {
@@ -24,9 +24,8 @@ const App = () => {
 
   return (
     <div className="App">
-      <NewExpense onAddExpense={addExpenseHandler}></NewExpense>
-      <ExpenseItem data= {expenses[0]}/>
-      <ExpenseItem data= {expenses[1]}/>
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <Expenses expenses={expenses} />
     </div>
   );
 }
