@@ -16,26 +16,44 @@ const ExpenseForm = (props) => {
     const dateChangeHandler = (event) => {
         setEnteredDate(event.target.value)
     }
+    const submitHandler = (event) => {
+        event.preventDefault()
+        const expenseData = {
+            title: enteredTitle,
+            price: enteredPrice,
+            date: new Date(enteredDate)
+        }
+        props.onSaveExpenseData(expenseData)
+        setEnteredTitle("")
+        setEnteredPrice("")
+        setEnteredDate("")
+    }
 
     return (
-        <form>
+        <form onSubmit={submitHandler}>
             <div className="new-expense__controls">
                 <div className="new-expense__control">
                     <label>Pealkiri</label>
-                    <input type="text"
-                    onChange={titleChangeHandler}
+                    <input 
+                        type="text"
+                        onChange={titleChangeHandler}
+                        value={enteredTitle}
                     />
                 </div>
                 <div className="new-expense__control">
                     <label>Hind</label>
-                    <input type="number" min="0,01" step="0,01"
-                    onChange={priceChangeHandler}
+                    <input 
+                        type="number" min="0,01" step="0,01"
+                        onChange={priceChangeHandler}
+                        value={enteredPrice}
                     />
                 </div>
                 <div className="new-expense__control">
                     <label>Kuupäev</label>
-                    <input type="date" min="2024-11-12" max="2026-01-31"
-                    onChange={dateChangeHandler}
+                    <input 
+                        type="date" min="2024-11-12" max="2026-01-31"
+                        onChange={dateChangeHandler}
+                        value={enteredDate}
                     />
                 </div>
             </div>
