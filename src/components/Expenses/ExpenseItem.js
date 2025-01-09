@@ -1,10 +1,15 @@
 import ExpenseDate from "./ExpenseDate"
 import "./ExpenseItem.css"
 import Card from "../UI/Card"
+import { useState } from "react"
 
 const ExpenseItem = (props) => {
+    const [title, setTitle] = useState(props.data.title)
+
     const clickHandler = () => {
         console.log("Vajutatud!")
+        setTitle(`uuendatud by click ${title}"`)
+        console.log(title)
     }
 
     console.log(props.data.date)
