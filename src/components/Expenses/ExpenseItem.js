@@ -14,7 +14,7 @@ const ExpenseItem = (props) => {
 
     console.log(props.data.date)
     
-
+    
     return (
         <Card className="expense-item">
             <ExpenseDate date={props.data.date}/>
