@@ -3,31 +3,36 @@ import { useState } from "react"
 
 const ExpenseForm = (props) => {
 
-    const [enteredTitle, setEnteredTitle] = useState ("")
-    const [enteredPrice, setEnteredPrice] = useState ("")
-    const [enteredDate, setEnteredDate] = useState ("")
+    const [enteredTitle, setEnteredTitle] = useState ("");
+    const [enteredPrice, setEnteredPrice] = useState ("");
+    const [enteredDate, setEnteredDate] = useState ("");
 
     const titleChangeHandler = (event) => {
-        setEnteredTitle(event.target.value)
-    }
+        setEnteredTitle(event.target.value);
+    };
+
     const priceChangeHandler = (event) => {
-        setEnteredPrice(event.target.value)
-    }
+        setEnteredPrice(event.target.value);
+    };
+
     const dateChangeHandler = (event) => {
-        setEnteredDate(event.target.value)
-    }
+        setEnteredDate(event.target.value);
+    };
+
     const submitHandler = (event) => {
-        event.preventDefault()
+        event.preventDefault();
+
         const expenseData = {
             title: enteredTitle,
             price: enteredPrice,
             date: new Date(enteredDate)
-        }
-        props.onSaveExpenseData(expenseData)
-        setEnteredTitle("")
-        setEnteredPrice("")
-        setEnteredDate("")
-    }
+        };
+
+        props.onSaveExpenseData(expenseData);
+        setEnteredTitle("");
+        setEnteredPrice("");
+        setEnteredDate("");
+    };
 
     return (
         <form onSubmit={submitHandler}>
@@ -51,7 +56,7 @@ const ExpenseForm = (props) => {
                 <div className="new-expense__control">
                     <label>Kuupäev</label>
                     <input 
-                        type="date" min="2024-11-12" max="2026-01-31"
+                        type="date" min="2023-11-12" max="2025-12-31"
                         onChange={dateChangeHandler}
                         value={enteredDate}
                     />
@@ -61,7 +66,7 @@ const ExpenseForm = (props) => {
                 <button type="submit">Lisa kuluartikkel</button>
             </div>
         </form>
-    )
-}
+    );
+};
 
-export default ExpenseForm
+export default ExpenseForm;

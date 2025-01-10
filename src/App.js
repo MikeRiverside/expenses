@@ -1,4 +1,3 @@
-
 import './App.css';
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from "./components/Expenses/NewExpense/NewExpense";
@@ -24,21 +23,22 @@ const DUMMY_EXPENSES = [
     price: 159.99
   }
 ]
+
 const App = () => {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES)
 
   const addExpenseHandler = (expense) => {
     setExpenses((prevExpenses) => {
       return [expense, ...prevExpenses]
-    } )
+    })
   }
 
   return (
-    <div className="App">
-      <NewExpense onAddExpense={addExpenseHandler}></NewExpense>
-      <Expenses expenses={DUMMY_EXPENSES} />
+    <div>
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <Expenses expenses={expenses} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
