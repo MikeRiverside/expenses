@@ -7,11 +7,14 @@ const Expenses = (props) => {
     const yearChangeHandler = (year) => {
         console.log(year)
     }
-return (
+    return (
         <Card className="expenses">
             <ExpensesFilter onYearChange={yearChangeHandler} />
-            <ExpenseItem data={props.expenses[0]} />
-            <ExpenseItem data={props.expenses[1]} />
+            {
+                props.expenses.map((expense) => {
+                    return <ExpenseItem key={expense.id} data={expense} />
+                })
+            }       
         </Card>
     )
 }
