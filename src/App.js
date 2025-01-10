@@ -7,7 +7,7 @@ import { useState } from 'react';
 const DUMMY_EXPENSES = [
   {
     id: Math.random().toString(), 
-    date: new Date(2024, 10, 22),
+    date: new Date(2023, 10, 22),
     title: "New Book",
     price: 30.99
   },
@@ -16,6 +16,12 @@ const DUMMY_EXPENSES = [
     date: new Date(2024, 10, 22),
     title: "New jeans",
     price: 99.99
+  },
+  {
+    id: Math.random().toString(), 
+    date: new Date(2025, 10, 22),
+    title: "New shoes",
+    price: 159.99
   }
 ]
 const App = () => {
