@@ -1,11 +1,17 @@
 import "./ExpenseForm.css"
-import { useState } from "react"
+import { useState, useRef } from "react"
 
 const ExpenseForm = (props) => {
 
     const [enteredTitle, setEnteredTitle] = useState ("");
     const [enteredPrice, setEnteredPrice] = useState ("");
     const [enteredDate, setEnteredDate] = useState ("");
+
+    const titleInputRef = useRef();
+    const priceInputRef = useRef();
+    const dateInputRef = useRef();
+
+    console.log(titleInputRef)
 
     const titleChangeHandler = (event) => {
         setEnteredTitle(event.target.value);
@@ -41,24 +47,21 @@ const ExpenseForm = (props) => {
                     <label>Pealkiri</label>
                     <input 
                         type="text"
-                        onChange={titleChangeHandler}
-                        value={enteredTitle}
+                        ref={titleInputRef}
                     />
                 </div>
                 <div className="new-expense__control">
                     <label>Hind</label>
                     <input 
                         type="number" min="0,01" step="0,01"
-                        onChange={priceChangeHandler}
-                        value={enteredPrice}
+                        ref={priceInputRef}
                     />
                 </div>
                 <div className="new-expense__control">
                     <label>Kuupäev</label>
                     <input 
                         type="date" min="2023-11-12" max="2025-12-31"
-                        onChange={dateChangeHandler}
-                        value={enteredDate}
+                        ref={dateInputRef}
                     />
                 </div>
             </div>
